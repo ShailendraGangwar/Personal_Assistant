@@ -13,17 +13,23 @@
 #import "ExpenseDetailViewController.h"
 #import "Expense.h"
 #import "ReportViewController.h"
+#import "CustomHeader.h"
 #import "LocationDemoViewController.h"
+#import "Common.h"
 @interface ExpenseViewController ()
+@property (nonatomic, assign) CGRect coloredBoxRect;
+@property (nonatomic, assign) CGRect paperRect;
 
+@property (nonatomic, strong) UILabel * titleLabel;
+@property (nonatomic, strong) UIColor * lightColor;
+@property (nonatomic, strong) UIColor * darkColor;
 @end
 
 @implementation ExpenseViewController
 @synthesize mManagedObjectContext,recordTableView,type,sorting;
 @synthesize mNetBalance,mNetBalanceAmount,mTempPlotArray;
-@synthesize mCellBalance,mCellCategory,mCellDate,mCellDesc,mCellType;
-@synthesize mTempExpenseData,mSpendingButton,mEarningButton;
-@synthesize mCellPayment,mNewButton,mTopView,mBottomView,mSortingButton;
+@synthesize mTempExpenseData;
+@synthesize mNewButton,mTopView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,35 +43,15 @@
 {
     [super viewDidLoad];
     [self setNavigationBar];
-    
-    [self customizeLabel:mCellBalance];
-    [self customizeLabel:mCellCategory];
-    [self customizeLabel:mCellDate];
-    [self customizeLabel:mCellDesc];
-    [self customizeLabel:mCellPayment];
-    [self customizeLabel:mCellType];
     [self customizeHeaderLabels:mNetBalanceAmount];
     [self customizeHeaderLabels:mNetBalance];
-    mTempExpenseData = [[NSMutableArray alloc] init];
     [self customizeButton:mNewButton];
-    [self customizeButtonEarningSpendings:mEarningButton];
-    [self customizeButtonEarningSpendings:mSpendingButton];
-    [self customizeButton:mSortingButton];
-    [mSortingButton setTitle:@"Daily" forState:UIControlStateNormal];
-    [mSortingButton setTitle:@"Daily" forState:UIControlStateSelected];
+    mTempExpenseData = [[NSMutableArray alloc] init];
     sorting = @"Daily";
     type = @"All";
-    mTopView.backgroundColor=RGB(220,220,220);
-    mTopView.alpha=0.85;
-    mTopView.layer.borderColor = [[UIColor blackColor] CGColor];
-    mTopView.layer.borderWidth = 1;
-    mBottomView.backgroundColor=[UIColor groupTableViewBackgroundColor];
-    mBottomView.alpha=0.85;
+    mTopView.backgroundColor = [UIColor colorWithRed:170/255.0 green:201/255.0 blue:226/255.0 alpha:1.0];
     mTempPlotArray = [[NSMutableArray alloc] init];
-    //mBottomView.layer.borderColor = [[UIColor blackColor] CGColor];
-    //mBottomView.layer.borderWidth = 1;
-    
-	// Do any additional setup after loading the view.
+    [recordTableView setBackgroundColor:[UIColor darkGrayColor]];
 }
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -73,9 +59,6 @@
     [self calculateNetBalance];
     type = @"All";
     [recordTableView reloadData];
-
-    mEarningButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    mSpendingButton.layer.borderColor = [[UIColor whiteColor] CGColor];
 
 }
 - (void)didReceiveMemoryWarning
@@ -115,8 +98,8 @@
 -(void) customizeButton: (UIButton *)btn
 {
     [btn.titleLabel setFont:[UIFont fontWithName:@UNIVERS_57_CONDENSED_LATIN size:15]];
-    [btn setBackgroundColor:RGB(255,134,34)];
-    [btn setAlpha:0.7];
+    [btn setBackgroundColor:[UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1.0]];
+    [btn setAlpha:1.0];
     btn.titleLabel.shadowColor = [UIColor groupTableViewBackgroundColor];
     btn.titleLabel.shadowOffset = CGSizeMake(1, 1);
     btn.titleLabel.textColor = UIColorFromHexRGB(0x329232);
@@ -383,16 +366,10 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView * headerView;
-    
-    headerView=[[UIView alloc]init];
+    CustomHeader * headerView = [[CustomHeader alloc] init];
     headerView.frame = CGRectMake(0,0,320,40);
-    headerView.backgroundColor=[UIColor orangeColor];
-    
-    UIImageView *imgview=[[UIImageView alloc]init];
-    imgview.frame=CGRectMake(0,1,320,38);
-    imgview.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    UILabel *statuslabel=[[UILabel alloc]initWithFrame:CGRectMake(5,10,320,20)];
+
+    UILabel *statuslabel=[[UILabel alloc]initWithFrame:CGRectMake(130,15,60,20)];
     
     statuslabel.font = [UIFont boldSystemFontOfSize:14];
     statuslabel.backgroundColor=[UIColor clearColor];
@@ -401,15 +378,33 @@
     Expense *exp = [sectionInfo objects][0];
     statuslabel.text = exp.transactionDate;
     
-    [imgview addSubview:statuslabel];
-    [headerView addSubview:imgview];
+    [headerView addSubview:statuslabel];
     return headerView;
 }
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 40.0;
+    return 50.0;
 }
-
-
+-(void) drawRect:(CGRect)rect
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    UIColor * whiteColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    UIColor * shadowColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5];
+    
+    CGContextSetFillColorWithColor(context, whiteColor.CGColor);
+    CGContextFillRect(context, _paperRect);
+    
+    CGContextSaveGState(context);
+    CGContextSetShadowWithColor(context, CGSizeMake(0, 2), 3.0, shadowColor.CGColor);
+    CGContextSetFillColorWithColor(context, self.lightColor.CGColor);
+    CGContextFillRect(context, self.coloredBoxRect);
+    CGContextRestoreGState(context);
+    drawGlossAndGradient(context, self.coloredBoxRect, self.lightColor.CGColor, self.darkColor.CGColor);
+    
+    CGContextSetStrokeColorWithColor(context, self.darkColor.CGColor);
+    CGContextSetLineWidth(context, 1.0);
+    CGContextStrokeRect(context, rectFor1PxStroke(self.coloredBoxRect));
+}
 
 @end

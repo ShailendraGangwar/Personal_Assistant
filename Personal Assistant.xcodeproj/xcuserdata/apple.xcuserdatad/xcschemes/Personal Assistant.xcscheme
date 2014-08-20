@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA048449180D18B4004E52B3"
-               BuildableName = "HeyZooka.app"
+               BuildableName = "Personal Assistant.app"
                BlueprintName = "Personal Assistant"
                ReferencedContainer = "container:Personal Assistant.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA048469180D18B4004E52B3"
-               BuildableName = "HeyZookaTests.xctest"
+               BuildableName = "Personal AssistantTests.xctest"
                BlueprintName = "Personal AssistantTests"
                ReferencedContainer = "container:Personal Assistant.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA048449180D18B4004E52B3"
-            BuildableName = "HeyZooka.app"
+            BuildableName = "Personal Assistant.app"
             BlueprintName = "Personal Assistant"
             ReferencedContainer = "container:Personal Assistant.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA048449180D18B4004E52B3"
-            BuildableName = "HeyZooka.app"
+            BuildableName = "Personal Assistant.app"
             BlueprintName = "Personal Assistant"
             ReferencedContainer = "container:Personal Assistant.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA048449180D18B4004E52B3"
-            BuildableName = "HeyZooka.app"
+            BuildableName = "Personal Assistant.app"
             BlueprintName = "Personal Assistant"
             ReferencedContainer = "container:Personal Assistant.xcodeproj">
          </BuildableReference>

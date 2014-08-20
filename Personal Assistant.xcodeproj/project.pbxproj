@@ -27,6 +27,8 @@
 		184FD467188D313A006F41FA /* PCPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FD466188D313A006F41FA /* PCPieChart.m */; };
 		18752E0D184F82FB008CC5A2 /* icon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18752E0A184F82FB008CC5A2 /* icon1@2x.png */; };
 		18752E0F184F82FB008CC5A2 /* icon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18752E0C184F82FB008CC5A2 /* icon3@2x.png */; };
+		18B4BBC418A2156D00905EE5 /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4BBC318A2156D00905EE5 /* CustomHeader.m */; };
+		18B4BBC718A215E200905EE5 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4BBC618A215E200905EE5 /* Common.m */; };
 		18D65AA61856168F002D0EAD /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D65AA51856168F002D0EAD /* images.png */; };
 		18D65AA818561783002D0EAD /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D65AA718561783002D0EAD /* image.png */; };
 		18FE6CF41890F98A002D7558 /* URLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE6CF31890F98A002D7558 /* URLViewController.m */; };
@@ -145,6 +147,10 @@
 		184FD466188D313A006F41FA /* PCPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCPieChart.m; sourceTree = "<group>"; };
 		18752E0A184F82FB008CC5A2 /* icon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon1@2x.png"; path = "Personal Assistant/Resources/icon1@2x.png"; sourceTree = "<group>"; };
 		18752E0C184F82FB008CC5A2 /* icon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon3@2x.png"; path = "Personal Assistant/Resources/icon3@2x.png"; sourceTree = "<group>"; };
+		18B4BBC218A2156D00905EE5 /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeader.h; sourceTree = "<group>"; };
+		18B4BBC318A2156D00905EE5 /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeader.m; sourceTree = "<group>"; };
+		18B4BBC518A215E200905EE5 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		18B4BBC618A215E200905EE5 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		18D65AA51856168F002D0EAD /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = images.png; path = "Personal Assistant/Resources/images.png"; sourceTree = "<group>"; };
 		18D65AA718561783002D0EAD /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image.png; path = "Personal Assistant/Resources/image.png"; sourceTree = "<group>"; };
 		18FE6CF21890F98A002D7558 /* URLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLViewController.h; sourceTree = "<group>"; };
@@ -440,6 +446,10 @@
 				184FD466188D313A006F41FA /* PCPieChart.m */,
 				18040636189230FE008A4B34 /* MapPoint.h */,
 				18040637189230FE008A4B34 /* MapPoint.m */,
+				18B4BBC218A2156D00905EE5 /* CustomHeader.h */,
+				18B4BBC318A2156D00905EE5 /* CustomHeader.m */,
+				18B4BBC518A215E200905EE5 /* Common.h */,
+				18B4BBC618A215E200905EE5 /* Common.m */,
 			);
 			name = TableCells;
 			path = ..;
@@ -635,6 +645,7 @@
 				18FE6CF41890F98A002D7558 /* URLViewController.m in Sources */,
 				AA9DA685181111A400AF2BCF /* ExpenseViewController.m in Sources */,
 				AA2AED481814E916008FD30C /* ContatTableViewCell.m in Sources */,
+				18B4BBC418A2156D00905EE5 /* CustomHeader.m in Sources */,
 				18040638189230FE008A4B34 /* MapPoint.m in Sources */,
 				AA048485180D190C004E52B3 /* HomeScreenViewController.m in Sources */,
 				AAB9E6041817A1D100B77952 /* TaskListCollectionCell.m in Sources */,
@@ -649,6 +660,7 @@
 				AAE875341818F02500E8AE8F /* TaskViewController.m in Sources */,
 				AA9DA6821811117100AF2BCF /* ContactsViewController.m in Sources */,
 				AA04845C180D18B4004E52B3 /* main.m in Sources */,
+				18B4BBC718A215E200905EE5 /* Common.m in Sources */,
 				184FD464188D2F39006F41FA /* ReportViewController.m in Sources */,
 				AAE8753A1819072600E8AE8F /* ExpenseDetailViewController.m in Sources */,
 				AA04848A180D2161004E52B3 /* TaskListViewController.m in Sources */,
